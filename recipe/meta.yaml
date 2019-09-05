@@ -1,4 +1,4 @@
-{% set version = "0.5.3" %}
+{% set version = "0.5.4" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ggmuller_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ggmuller/ggmuller_{{ version }}.tar.gz
-  sha256: c3a58869391678692edbf09a0f49bb786640a6cfabe1a038a3483042d5839761
+  sha256: 1d882a1388b6fc4e2a8b50bc79fcd4caa72c141b202967fc650ac5525daaeb78
 
 build:
   noarch: generic
-  number: 1001
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/

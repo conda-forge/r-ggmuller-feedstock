@@ -1,5 +1,4 @@
-{% set version = "0.5.4" %}
-
+{% set version = '0.5.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,26 +7,27 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ggmuller_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/ggmuller_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/ggmuller/ggmuller_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/ggmuller_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/ggmuller/ggmuller_{{ version }}.tar.gz
   sha256: 1d882a1388b6fc4e2a8b50bc79fcd4caa72c141b202967fc650ac5525daaeb78
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-ape
     - r-dplyr >=0.7.0
     - r-ggplot2
-
   run:
     - r-base
     - r-ape
@@ -36,7 +36,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('ggmuller')"  # [not win]
+    - $R -e "library('ggmuller')"           # [not win]
     - "\"%R%\" -e \"library('ggmuller')\""  # [win]
 
 about:
@@ -47,12 +47,30 @@ about:
     in publications of the labs of RE Lenski and JE Barrick. Named for HJ Muller (who
     popularised such plots) and H Wickham (whose code this package exploits).
   license_family: MIT
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - cbrueffer
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+
+# Package: ggmuller
+# Title: Create Muller Plots of Evolutionary Dynamics
+# Version: 0.5.4
+# Authors@R: person("Robert", "Noble", email = "robjohnnoble@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8057-4252"))
+# Description: Create plots that combine a phylogeny and frequency dynamics. Phylogenetic input can be a generic adjacency matrix or a tree of class "phylo". Inspired by similar plots in publications of the labs of RE Lenski and JE Barrick. Named for HJ Muller (who popularised such plots) and H Wickham (whose code this package exploits).
+# Depends: R (>= 3.2.0)
+# Imports: dplyr (>= 0.7.0), ggplot2, ape
+# Suggests: RColorBrewer, knitr, rmarkdown
+# VignetteBuilder: knitr
+# License: MIT + file LICENSE
+# Encoding: UTF-8
+# LazyData: true
+# RoxygenNote: 6.1.1
+# NeedsCompilation: no
+# Packaged: 2019-09-04 13:10:48 UTC; rnoble
+# Author: Robert Noble [aut, cre] (<https://orcid.org/0000-0002-8057-4252>)
+# Maintainer: Robert Noble <robjohnnoble@gmail.com>
+# Repository: CRAN
+# Date/Publication: 2019-09-05 02:10:17 UTC

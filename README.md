@@ -1,11 +1,11 @@
-About r-ggmuller
-================
+About r-ggmuller-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggmuller-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=ggmuller
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggmuller-feedstock/blob/main/LICENSE.txt)
 
 Summary: Create plots that combine a phylogeny and frequency dynamics. Phylogenetic input can be a generic adjacency matrix or a tree of class "phylo". Inspired by similar plots in publications of the labs of RE Lenski and JE Barrick. Named for HJ Muller (who popularised such plots) and H Wickham (whose code this package exploits).
 

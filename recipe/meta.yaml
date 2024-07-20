@@ -1,6 +1,5 @@
 {% set version = "0.5.6" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-ggmuller
@@ -13,8 +12,7 @@ source:
   sha256: ca20d3ee33d282af761b2084144abe2e5dc0e40e86e559a7187f2e9a1c373e19
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   noarch: generic
   rpaths:
     - lib/R/lib/

@@ -1,4 +1,4 @@
-{% set version = "0.5.6" %}
+{% set version = "0.7.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggmuller_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggmuller/ggmuller_{{ version }}.tar.gz
-  sha256: ca20d3ee33d282af761b2084144abe2e5dc0e40e86e559a7187f2e9a1c373e19
+  sha256: ac2409c1d992bede4406974f3fbe6ab01ceac9c8f1f3dd308349ce2a749c1942
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
